@@ -14,7 +14,7 @@ import edu.grinnell.csc207.soundsofsorting.events.SwapEvent;
 public class Sorts {
     /**
      * swap elements of an array
-     * 
+ *
      * @param <T> the type of the array
      * @param arr the array to swap
      * @param i   the first index to swap
@@ -127,8 +127,17 @@ public class Sorts {
         return events;
     }
 
-    private static <T extends Comparable<T>> void mergeSortHelper(T[] arr, int left, int right,
-            List<SortEvent<T>> events) {
+    /**
+     * Helper method for merge sort that recursively sorts subarrays.
+     *
+     * @param <T>    the type of the array
+     * @param arr    the array to sort
+     * @param left   the left boundary of the current subarray
+     * @param right  the right boundary of the current subarray
+     * @param events list to collect sorting events
+     */
+    private static <T extends Comparable<T>> void mergeSortHelper(
+            T[] arr, int left, int right, List<SortEvent<T>> events) {
         if (left < right) {
             int mid = left + (right - left) / 2;
             mergeSortHelper(arr, left, mid, events);
@@ -137,9 +146,19 @@ public class Sorts {
         }
     }
 
+    /**
+     * Merges two sorted subarrays into a single sorted subarray.
+     *
+     * @param <T>    the type of the array
+     * @param arr    the array containing subarrays to merge
+     * @param left   the left boundary of the first subarray
+     * @param mid    the middle index separating the two subarrays
+     * @param right  the right boundary of the second subarray
+     * @param events list to collect sorting events
+     */
     @SuppressWarnings("unchecked")
-    private static <T extends Comparable<T>> void merge(T[] arr, int left, int mid, int right,
-            List<SortEvent<T>> events) {
+    private static <T extends Comparable<T>> void merge(
+            T[] arr, int left, int mid, int right, List<SortEvent<T>> events) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
@@ -202,8 +221,17 @@ public class Sorts {
         return events;
     }
 
-    private static <T extends Comparable<T>> void quickSortHelper(T[] arr, int low, int high,
-            List<SortEvent<T>> events) {
+    /**
+     * Helper method for quick sort that recursively sorts subarrays.
+     * 
+     * @param <T>    the type of the array
+     * @param arr    the array to sort
+     * @param low    the lower boundary of the current subarray
+     * @param high   the upper boundary of the current subarray
+     * @param events list to collect sorting events
+     */
+    private static <T extends Comparable<T>> void quickSortHelper(
+            T[] arr, int low, int high, List<SortEvent<T>> events) {
         if (low < high) {
             int pi = partition(arr, low, high, events);
             quickSortHelper(arr, low, pi - 1, events);
@@ -211,7 +239,19 @@ public class Sorts {
         }
     }
 
-    private static <T extends Comparable<T>> int partition(T[] arr, int low, int high, List<SortEvent<T>> events) {
+    /**
+     * Partitioning method for quick sort that selects a pivot and places elements
+     * smaller than the pivot to the left and larger to the right.
+     *
+     * @param <T>    the type of the array
+     * @param arr    the array to partition
+     * @param low    the lower boundary of the current subarray
+     * @param high   the upper boundary of the current subarray
+     * @param events list to collect sorting events
+     * @return       the pivot position after partitioning
+     */
+    private static <T extends Comparable<T>> int partition(
+            T[] arr, int low, int high, List<SortEvent<T>> events) {
         T pivot = arr[high];
         int i = low - 1;
 
@@ -240,9 +280,9 @@ public class Sorts {
     }
 
     /**
-     * Heap sort
-     * ref: https://www.geeksforgeeks.org/heap-sort/
-     * 
+     * Heap sort algorithm implementation.
+     * Reference: https://www.geeksforgeeks.org/heap-sort/
+     *
      * @param <T> the type of the array
      * @param arr the array to sort
      * @return list of sorting events generated during the sort
@@ -271,7 +311,17 @@ public class Sorts {
         return events;
     }
 
-    private static <T extends Comparable<T>> void heapify(T[] arr, int n, int i, List<SortEvent<T>> events) {
+    /**
+     * Heapify a subtree rooted with node i which is an index in arr[].
+     *
+     * @param <T>    the type of the array
+     * @param arr    the array to heapify
+     * @param n      the size of the heap
+     * @param i      the index of the root of the subtree to heapify
+     * @param events list to collect sorting events
+     */
+    private static <T extends Comparable<T>> void heapify(
+            T[] arr, int n, int i, List<SortEvent<T>> events) {
         int largest = i; // Initialize largest as root
         int left = 2 * i + 1; // left = 2*i + 1
         int right = 2 * i + 2; // right = 2*i + 2

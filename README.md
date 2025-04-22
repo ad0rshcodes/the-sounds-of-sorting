@@ -2,8 +2,13 @@
 
 Author: _Adarsh Sharma_
 
-## Resources
+## Resources and Ack
 
+- [TTAP: Data Structures - Lab Manual](https://osera.cs.grinnell.edu/ttap/data-structures-labs/the-worlds-best-internship.html)
+- [TTAP: Data Structures](https://osera.cs.grinnell.edu/ttap/data-structures/)
+- VSCode Version: 1.99.1 (Universal)
+- java 21.0.1 2023-10-17 LTS 6.
+- [GitHub](https://github.com)
 - _Head Sort: https://www.geeksforgeeks.org/heap-sort/_
 - _Sorting Algorithms: https://www.programiz.com/dsa/sorting-algorithm_
 

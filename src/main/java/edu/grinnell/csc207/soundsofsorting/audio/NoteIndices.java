@@ -1,6 +1,5 @@
 package edu.grinnell.csc207.soundsofsorting.audio;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
